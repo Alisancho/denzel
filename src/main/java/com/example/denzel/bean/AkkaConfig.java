@@ -5,7 +5,6 @@ import akka.stream.ActorMaterializer;
 import akka.stream.Materializer;
 import akka.stream.alpakka.elasticsearch.ElasticsearchSourceSettings;
 import akka.stream.alpakka.elasticsearch.ElasticsearchWriteSettings;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
