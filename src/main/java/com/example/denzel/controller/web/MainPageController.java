@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 public class MainPageController {
 
     @Autowired
-   private UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping
     public String mainPage(final Model model) throws ExecutionException, InterruptedException {
