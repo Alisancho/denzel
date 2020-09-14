@@ -14,8 +14,6 @@
     <name>denzel</name>
     <description>Project for Spring Boot</description>
     <properties>
-        <akka.version>2.6.9</akka.version>
-        <scala.binary.version>2.12</scala.binary.version>
         <java.version>14</java.version>
         <version.elasticsearch>7.9.1</version.elasticsearch>
     </properties>
