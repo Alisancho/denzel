@@ -36,8 +36,7 @@ public class UserRepository {
                         WriteMessage.createDeleteMessage("00002"));
 
         Source.from(requests)
-                .via(
-                        ElasticsearchFlow.create(
+                .via(ElasticsearchFlow.create(
                                 "sink8",
                                 "_doc",
                                 ElasticsearchWriteSettings.create().withApiVersion(V7),
