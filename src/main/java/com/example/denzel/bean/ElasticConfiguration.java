@@ -1,5 +1,11 @@
 package com.example.denzel.bean;
 
+import org.apache.http.HttpHost;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +26,10 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 public class ElasticConfiguration {
 
     @Bean
-    public RestHighLevelClient client(@Value("${elastic.user}") String login,
-                                       @Value("${elastic.password}") String pass,
-                                       @Value("${elastic.host}") String host,
-                                       @Value("${elastic.port}") String port) {
+    public RestHighLevelClient client() {
         final var clientConfiguration
                 = ClientConfiguration.builder()
-                .connectedTo("http://" + login + ":" + pass + "@" + host + ":" + port).build();
-
+                .connectedToLocalhost().build();
         return RestClients.create(clientConfiguration).rest();
     }
 
