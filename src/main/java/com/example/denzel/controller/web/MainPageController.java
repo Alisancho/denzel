@@ -1,5 +1,6 @@
 package com.example.denzel.controller.web;
 
+import com.example.denzel.entity.elastic.User;
 import com.example.denzel.repository.elastic.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,8 @@ public class MainPageController {
 
     @GetMapping
     public String mainPage(final Model model) throws ExecutionException, InterruptedException {
-        userRepository.deded();
+        final var user = new User("9-asegsrg","Alex","Kook",34);
+        userRepository.save(user);
         return "untitled";
     }
 }
