@@ -7,9 +7,9 @@ import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 public interface UserRepository extends ElasticsearchRepository<User, String> {
-    Page<User> findByAuthorsName(String name, Pageable pageable);
-
-    @Query("{\"bool\": {\"must\": [{\"match\": {\"authors.name\": \"?0\"}}]}}")
-    Page<User> findByAuthorsNameUsingCustomQuery(String name, Pageable pageable);
+//    Page<User> findByAuthorsName(String name, Pageable pageable);
+//
+//    @Query("{\"bool\": {\"must\": [{\"match\": {\"authors.name\": \"?0\"}}]}}")
+//    Page<User> findByAuthorsNameUsingCustomQuery(String name, Pageable pageable);
 
 }
