@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @RestController
@@ -28,19 +28,23 @@ public class ProductController {
     private UserRepository userRepository;
 
     @GetMapping("/addUser")
-    public String addUser(@RequestParam("lastname") Optional<String> lastname,
-                          @RequestParam("firstname") Optional<String> firstname,
-                          @RequestParam("age") Optional<Integer> age) {
+    public Comparable<String> addUser(@RequestParam("lastname") Optional<String> lastname,
+                                      @RequestParam("firstname") Optional<String> firstname,
+                                      @RequestParam("age") Optional<Integer> age) {
         if (lastname.isPresent() && firstname.isPresent() && age.isPresent()) {
             log.info("New user");
-            userRepository.save(new User(getIDUser(), lastname.get(), firstname.get(), age.get()));
+            CompletableFuture.runAsync(() ->
+                    userRepository.save(new User(getIDUser(), lastname.get(), firstname.get(), age.get()))
+            );
+            return "OK";
+        } else {
+            return "NO";
         }
-        return "ok";
     }
 
     @GetMapping("getAllUsers")
-    public Iterable<User> getAllUsers(){
+    public Iterable<User> getAllUsers() {
+        userRepository.findAll();
         return userRepository.findAll();
     }
-
 }

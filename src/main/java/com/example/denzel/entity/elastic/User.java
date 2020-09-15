@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.elasticsearch.annotations.Document;
-//import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.Id;
 
@@ -12,7 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(indexName = "user")
-public class User {
+public class User implements ElasticType {
     @Id
     private String id;
     private String firstname;

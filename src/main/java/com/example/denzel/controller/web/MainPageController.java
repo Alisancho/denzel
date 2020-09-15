@@ -1,6 +1,5 @@
 package com.example.denzel.controller.web;
 
-import com.example.denzel.entity.elastic.User;
 import com.example.denzel.repository.elastic.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +20,4 @@ public class MainPageController {
     public String mainPage(final Model model) throws ExecutionException, InterruptedException {
         return "untitled";
     }
-
-
 }
