@@ -19,8 +19,8 @@ public class MainPageController {
 
     @GetMapping
     public String mainPage(final Model model) throws ExecutionException, InterruptedException {
-        final var user = new User("9-asegsrg","Alex","Kook",34);
-        userRepository.save(user);
         return "untitled";
     }
+
+
 }

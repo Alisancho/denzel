@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(indexName = "useer")
+@Document(indexName = "user")
 public class User {
     @Id
     private String id;
